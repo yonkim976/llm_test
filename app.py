@@ -10,6 +10,11 @@ import os
 st.set_page_config(page_title="기업 문서 분석 시스템", layout="wide")
 st.title("기업 문서 분석 시스템")
 
+# 사이드바에 초기화 버튼 추가
+if st.sidebar.button("채팅 초기화"):
+    st.session_state['messages'] = []
+    st.rerun()
+
 # OpenAI API 키 입력 섹션
 if 'OPENAI_API_KEY' not in st.session_state:
     st.session_state['OPENAI_API_KEY'] = ''
