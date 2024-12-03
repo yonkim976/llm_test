@@ -26,7 +26,10 @@ if api_key:
 
 if st.session_state['OPENAI_API_KEY']:
     # embeddings 객체 생성
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-3-large",  # 최신 임베딩 모델
+        dimensions=3072  # 임베딩 차원 (3-large의 경우 1024 또는 3072 선택 가능)
+)
     
     # 벡터 저장소 로드
     if 'vectorstore' not in st.session_state:
